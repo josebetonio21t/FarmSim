@@ -117,3 +117,15 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# Backend local files
+.tools/
+**/bin/
+**/obj/
+TestResults/
+.vs/
+.idea/
+*.user
+*.suo
+docs/performance-testing/results/*
+!docs/performance-testing/results/.gitkeep
