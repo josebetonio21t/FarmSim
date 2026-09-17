@@ -1,0 +1,40 @@
+@FarmSim.Api_HostAddress = http://localhost:5000
+
+GET {{FarmSim.Api_HostAddress}}/health
+Accept: application/json
+
+###
+
+GET {{FarmSim.Api_HostAddress}}/api/sensors/current
+Accept: application/json
+
+###
+
+POST {{FarmSim.Api_HostAddress}}/api/sensors/simulate
+Content-Type: application/json
+
+{
+  "ph": 6.2,
+  "waterTemperatureC": 22.5,
+  "waterLevelPercent": 84
+}
+
+###
+
+GET {{FarmSim.Api_HostAddress}}/api/sensors/history?limit=10
+Accept: application/json
+
+###
+
+GET {{FarmSim.Api_HostAddress}}/api/actuators
+Accept: application/json
+
+###
+
+POST {{FarmSim.Api_HostAddress}}/api/actuators/water-pump
+Content-Type: application/json
+
+{
+  "isOn": true,
+  "powerPercent": 80
+}
