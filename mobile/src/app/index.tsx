@@ -1,11 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { Redirect } from 'expo-router';
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      
-    </View>
-  );
+export default function IndexPage() {
+  // Automatically forwards the user straight to the /plots screen on app launch
+  return <Redirect href="/plots" />;
 }
 
 const styles = StyleSheet.create({
