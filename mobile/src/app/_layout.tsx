@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Stack, useRouter } from 'expo-router';
-import { StatusBar, TouchableOpacity, View, StyleSheet, Text, Platform } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Stack, useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function RootLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,6 +32,7 @@ export default function RootLayout() {
     { name: 'chart-timeline-variant', label: 'Analytics' },
     { name: 'play-circle-outline', label: 'Automation' },
     { name: 'alert-outline', label: 'Alerts' },
+    { name: 'cog-outline', label: 'Settings' },
   ];
 
   return (
@@ -80,7 +81,19 @@ export default function RootLayout() {
                   if (icon.label === 'Plots') {
                     router.push('/plots' as any); 
                   } else if (icon.label === 'Grow') {
-                    router.push('/' as any); 
+                    router.push('/plots' as any); 
+                  } else if (icon.label === 'Nutrients') {
+                    router.push('/nutrients' as any);
+                  } else if (icon.label === 'Targets') { 
+                    router.push('/targets' as any); 
+                  } else if (icon.label === 'Analytics') {
+                  router.push('/analytics' as any); 
+                  } else if (icon.label === 'Automation') {
+                  router.push('/automation' as any); 
+                  } else if (icon.label === 'Alerts') {
+                  router.push('/alerts' as any);
+                  } else if (icon.label === 'Settings') {
+                  router.push('/settings' as any);
                   }
                 }}
               >
@@ -153,8 +166,8 @@ const styles = StyleSheet.create({
     textTransform: 'lowercase',
   },
   sidebarOverlay: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, flexDirection: 'row', backgroundColor: 'rgba(17, 20, 17, 0.4)', zIndex: 9999 },
-  closeArea: { position: 'absolute', top: 0, bottom: 0, left: 80, right: 0 },
-  drawerColumn: { width: 80, height: '100%', backgroundColor: '#111411', borderRightWidth: 1, borderRightColor: '#1A221A', alignItems: 'center', paddingTop: 60, gap: 25 },
+  closeArea: { position: 'absolute', top: 0, bottom: 0, left: 120, right: 0 },
+  drawerColumn: { width: 120, height: '100%', backgroundColor: '#111411', borderRightWidth: 1, borderRightColor: '#1A221A', alignItems: 'center', paddingTop: 60, gap: 25 },
   iconWrapper: { alignItems: 'center', justifyContent: 'center', width: '100%', paddingVertical: 8 },
   iconLabel: { fontSize: 10, color: '#455545', marginTop: 4, fontWeight: '500' },
   activeText: { color: '#00E639' },
